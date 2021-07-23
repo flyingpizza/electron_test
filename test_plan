@@ -1,0 +1,67 @@
+Test plan
+Aim to keep the test plan as lightweight yet effective as possible. For manual clicking through validations, we are keeping it free form. Just enough description to tell people what to test helps fuzzes the workflow up. 
+We are more likely to catch more critical bugs that way. I am following the steps from book How Google Tests Software.
+
+Test to be ran during release:
+These are high priority tests and these are the areas that needs to be validated before we cross the point of no return (rollback of migration)
+
+
+1.1. Data and Database Integrity Testing:
+        pass on all Operations below is successful
+            1.Repository Operations - @fake.member
+            2.pushing to protected branch  (provide access when it should and protect when it should)
+            3.Verify access to rancher-desktop-db Database.
+            4.Verify simultaneous record read accesses.
+            5.Verify lockout during rancher-desktop-db updates.
+            6.Verify correct retrieval of update of database data.
+
+1.2. Function Testing
+
+    MAC:
+        pass on True
+            The KIM shall interface with the existing k3s (hyperkit managed vm)
+            The KUBECTL shall interface with the existing k3s (hyperkit managed vm)
+            The Helm shall interface with the existing k3s (hyperkit managed vm)
+
+    WINDOWS:
+        pass on True
+            The KIM shall interface with the existing k3s (windows subsystem linux v2)
+            The KUBECTL shall interface with the existing k3s (windows subsystem linux v2)
+            The Helm shall interface with the existing k3s (windows subsystem linux v2)
+
+
+1.3. User Interface Testing
+
+    MAC/WINDOWS:
+        pass on True
+            Verify ease of navigation through a sample set of screens.
+            Verify sample screens conform to GUI standards.
+            The desktop user-interface shall be all version of Windows and mac compliant.
+
+1.4 Performance Testing
+    MAC/WINDOWS
+        pass on True
+            Verify response time to access external mircoservices.
+            Verify response time to access external hyperkit managed vm.
+            Verify response time to access external windows subsystem linux v2.
+            Verify response time for remote login.
+            Verify response time for remote/local installation.
+
+2.6 Load Testing
+    MAC/WINDOWS
+        pass on True
+            Verify system response when loaded with 200 containers are created.
+            Verify system response when 50 parallel running containers.
+
+2.7 Stress Testing
+    MAC/WINDOWS
+        pass on True
+            Verify system response when loaded with 600 containers are created.
+            Verify system response when 300 parallel running containers.
+
+2.9 Security and Access Control Testing
+    MAC/WINDOWS
+        pass on True
+            Verify Logon from a local PC.
+            Verify Logon from a remote PC.
+            Verify Logon security through user name and password mechanisms.
